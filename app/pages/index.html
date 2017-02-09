@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="blocTime">
+<html ng-app="bloctime">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>BlocTime</title>
+    <title>Bloctime</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
+
+    <nav class="navbar"><!-- navigation bar -->
+        <a ui-sref="home" class="logo">
+            <!-- <img src="/assets/images/bloctime_logo.png" alt="bloctime logo"> -->
+            <h2>Bloctime - a Pomodoro-based time management application</h2>
+        </a>
+    </nav>
+
+    <ui-view></ui-view>
+
     <script src="/scripts/app.js"></script>
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
@@ -24,5 +34,12 @@
     </script>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <!-- Custom script sources -->
+    <script src="/scripts/controllers/HomeCtrl.js"></script>
+    <script src="/scripts/controllers/StartCtrl.js"></script>
+    <script src="/scripts/controllers/ResetCtrl.js"></script>
+    <script src="/scripts/controllers/BreakCtrl.js"></script>
+
+
 </body>
 </html>

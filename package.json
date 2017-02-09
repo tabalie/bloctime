@@ -1,7 +1,7 @@
 {
   "name": "BlocTime",
   "version": "0.0.1",
-  "description": "BlocTime uses Firebase and AngularJS to provide a Pomodoro time management application.",
+  "description": "Bloctime uses Firebase and AngularJS to provide a Pomodoro time management application.",
   "repository": {
     "type": "git",
     "url": "https://github.com/tabalie/bloctime"

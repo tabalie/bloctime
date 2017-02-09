@@ -9,20 +9,28 @@
 
         //to allow ui-view to load template associated with landing, album, and collection states
         $stateProvider
-            .state('landing', {
+            .state('home', {
                 url: '/',
-                controller: 'LandingCtrl as landing',
-                templateUrl: '/templates/landing.html'
+                controller: 'HomeCtrl as home',
+                templateUrl: '/templates/home.html'
             })
 
-            // .state('album', {
-            //     url: '/album',
-            //     controller: 'AlbumCtrl as album',
-            //     templateUrl: '/templates/album.html'
-            // })
+            // Start a new session
+            .state('start', {
+                url: '/start',
+                controller: 'StartCtrl as start',
+                templateUrl: '/templates/start.html'
+            })
+
+            // Reset session
+            .state('reset', {
+                url: '/reset',
+                controller: 'ResetCtrl as reset',
+                templateUrl: '/templates/reset.html'
+            })
     }
 
     angular
-        .module('blocTime', ['ui.router', 'firebase'])
+        .module('bloctime', ['ui.router', 'firebase'])
         .config(config);
 })();
