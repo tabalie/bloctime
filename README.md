@@ -1,6 +1,6 @@
 ## BlocTime - by Natalie Kueneman
 
-BlocTime uses Firebase and AngularJS to provide a Pomodoro time management application.
+BlocTime uses Firebase and AngularJS to provide a Pomodoro-based time management application.
 
 https://github.com/tabalie/bloctime
 
