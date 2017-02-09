@@ -8,10 +8,10 @@
 <body>
 
     <nav class="navbar"><!-- navigation bar -->
-        <a ui-sref="home" class="logo">
-            <!-- <img src="/assets/images/bloctime_logo.png" alt="bloctime logo"> -->
-            <h2>Bloctime - a Pomodoro-based time management application</h2>
-        </a>
+        <div class="links-container">
+            <a ui-sref="home" class="navbar-link">bloctime</a>
+        </div>
+        <h5> a pomodoro-based time management application</h5>
     </nav>
 
     <ui-view></ui-view>
@@ -34,12 +34,10 @@
     </script>
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+    <!-- UI Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <!-- Custom script sources -->
     <script src="/scripts/controllers/HomeCtrl.js"></script>
-    <script src="/scripts/controllers/StartCtrl.js"></script>
-    <script src="/scripts/controllers/ResetCtrl.js"></script>
-    <script src="/scripts/controllers/BreakCtrl.js"></script>
-
 
 </body>
 </html>
