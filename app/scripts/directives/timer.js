@@ -9,10 +9,10 @@
             link: function(scope, element, attributes) {
 
 
-                scope.startTimer = 'Start';
+                scope.startTimer = '2500';
                 scope.takeBreak = 'Break';
                 scope.startTime = 2500;
-                var cansInt;
+                var cancInt;
 
                 var countdown = function() {
                     scope.startTimer--;
@@ -46,7 +46,7 @@
     };
 
 angular
-    .module('blocTime')
+    .module('bloctime')
     .directive('timer', timer);
 
 })();
