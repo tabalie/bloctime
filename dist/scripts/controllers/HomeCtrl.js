@@ -1,48 +1,39 @@
 (function() {
-    function HomeCtrl($scope, $timeout) {
+    function HomeCtrl($scope, $interval) {
 
-        // current timer
+        // state of timer on load - stopped and ready to start work session
+        $scope.state = "stopped";
+        $scope.button = "Start";
+
+        // counter at start
         $scope.counter = 25000;
 
-        // timer method
-        $scope.onTimeout = function() {
-            if($scope/counter === 0) {
-                $scope.$broadcast('timer-stopped', 0);
-                $timeout.cancel(myTimeout);
-                return;
-            }
-            $scope.counter--;
-            mytimeout = $timeout($scope.onTimeout, 1000);
+        // declare interval variable
+        var myInterval;
+
+        // function that counts down 1 from the starting counter time
+        var timerCountdown = function(counter) {
+            $scope.counter = $scope.counter - 1;
         };
 
-        // start timer
+
+        // need startTimer and stopTimer to toggle between
+        //    start and stop/reset timer
+        
+        // start timer method
         $scope.startTimer = function() {
-            mytimeout = $timeout($scope.onTimeout, 1000);
+            myInterval = $interval(timerCountdown, 1000);
+            $scope.state = "countingDown";
+            $scope.button = "Stop";
         };
 
-        // stop and reset timer
-        $scope.stopTimer = function() {
-            $scope.$braodcast('timer-stopped', $scope.counter);
-            $scope.counter = 90;
-            $timeout.cancel(mytimeout);
-        }
-
-        // take a break - stops timer
-        // $scope.$on('timer-stopped', function(event, remaining) {
-        // });
-
-
-        // $interval(timer, 25000);
-
-        // startTimer
-        // count down the timer by 1 every second
-        // $scope.startTimer = function() {
-        //     $scope.$broadcast('timer-start');
-        //     $scope.timerRunning = true;
-        // };
-
-        // reset
-        // reset timerDisplay back to highest amount
+        // stop timer method
+        $scope.stopTimer = function(myInterval) {
+            // must cancel interval!
+            $interval.cancel(myInterval);
+            $scope.state = "stopped";
+            $scope.button = "Start";
+        };
 
         // break
         // take 5 minute break and then startTimer
