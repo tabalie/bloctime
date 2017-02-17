@@ -32,7 +32,7 @@
         // stops timer and resets counter to 25000
         var resetTimer = function() {
             // must cancel interval! should log "true" if interval canceled
-            console.log($interval.cancel(myInterval));
+            $interval.cancel(myInterval);
             $scope.isCountingDown = false;
             // change button text from "Stop" to "Start"
             $scope.buttonText = "Start";
@@ -40,9 +40,8 @@
             $scope.counter = 25000;
         };
 
-        // $scope.toggle =
-        // if state stopped then kjglj
-        // if state countingDown then asdlfsldf
+        // toggles between startTimer and resetTimer depending on state
+        // of timer (isCountingDown true or false)
 
         $scope.toggleTimer = function() {
             if ($scope.isCountingDown) {
@@ -52,11 +51,28 @@
             }
         };
 
+        // when not on a break, onBreak state is false. when on break is true
+        var onBreak = false;
+        var totalBreaks = 0;
 
         // break
-        // listen for a break (in this case, counter = 0)
-        // keep track of completed breaks so i know when to have longer break
-        // take 5 minute break once timer  gets to 0, and then auto start work session startTimer
+        // when counter gets to 0, Take break button appears. When clicked, 5 minute timer starts.
+        //   onBreak state is true
+        $scope.startBreak = function() {
+            if ($scope.counter === 0) {
+                $scope.buttonText = "Start break";
+                $scope.counter = 5000;
+                startTimer()
+                onBreak = true;
+                totalBreaks++;
+            } else {
+                $scope.buttonText = "Reset break";
+                $interval.cancel(myInterval);
+                $scope.isCountingDown = false;
+                $scope.counter = 5000;
+                onBreak = false;
+            }
+        };
 
     }
 
