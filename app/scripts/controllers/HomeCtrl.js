@@ -56,7 +56,7 @@
         var totalBreaks = 0;
 
         // break
-        // when counter gets to 0, Take break button appears. When clicked, 5 minute timer starts.
+        // when counter gets to 0, Start Break button appears. When clicked, 5 minute timer starts.
         //   onBreak state is true
         $scope.startBreak = function() {
             if ($scope.counter === 0) {
@@ -65,11 +65,13 @@
                 startTimer()
                 onBreak = true;
                 totalBreaks++;
-            } else {
+            } else if (onBreak) {
                 $scope.buttonText = "Reset break";
                 $interval.cancel(myInterval);
                 $scope.isCountingDown = false;
                 $scope.counter = 5000;
+                onBreak = false;
+            } else {
                 onBreak = false;
             }
         };
