@@ -25,18 +25,19 @@
             myInterval = $interval(timerCountdown, 1000);
             $scope.isCountingDown = true;
             // change button text from "Start" to "Stop"
-            $scope.buttonText = "Stop";
+            $scope.buttonText = "Reset";
         };
 
-        // stop timer method
-        // make it reusbale for the break as well (depending on state, reset timer, reset 5 min break, reset onger break)
-        // maybe make this reset timer, so add a reset to the counter
-        var stopTimer = function() {
+        // reset timer method
+        // stops timer and resets counter to 25000
+        var resetTimer = function() {
             // must cancel interval! should log "true" if interval canceled
             console.log($interval.cancel(myInterval));
             $scope.isCountingDown = false;
             // change button text from "Stop" to "Start"
             $scope.buttonText = "Start";
+            // resets timer counter
+            $scope.counter = 25000;
         };
 
         // $scope.toggle =
@@ -45,7 +46,7 @@
 
         $scope.toggleTimer = function() {
             if ($scope.isCountingDown) {
-                stopTimer();
+                resetTimer();
             } else {
                 startTimer();
             }
